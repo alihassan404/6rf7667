@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .mybox{
+            
+                background-color: aqua;
+                border-radius: 20%;
+                height: 150px;
+                width: 150px;
+            }
+           @media(max-width:767px){
+               
+           }
+        
+    </style>
+</head>
+<body>
+
+    <center>
+        <div class="mybox"></div>
+    </center>
+
+    <script>
+        window.addEventListener('load', () =>{
+            startqueries();
+        })
+        
+        const startqueries = () =>{
+            const MediaQueryNew = matchMedia('(max-width:767px)');
+            let mybox = document.querySelector('.mybox');
+            const ifmatcheschange = e => {
+                if(e.matches)
+                {
+                    mybox.style.borderRadius = '100%';
+
+                    
+                }
+                else
+                {
+                    mybox.style.borderRadius = '20%';
+                }
+            }
+                MediaQueryNew.addListener(ifmatcheschange)
+                ifmatcheschange(MediaQueryNew);
+            
+        }
+    </script>
+</body>
+</html>
